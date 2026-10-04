@@ -1,0 +1,11 @@
+.DS_Store
+
+# Terraform: commit .tf files and .terraform.lock.hcl only
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+tfplan
+*.tfplan
+crash.log
