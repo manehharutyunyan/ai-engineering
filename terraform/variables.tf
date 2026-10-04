@@ -39,3 +39,15 @@ variable "root_volume_gb" {
   type        = number
   default     = 16
 }
+
+variable "extra_ssh_user" {
+  description = "Optional extra login user created by user-data (in the docker group, no sudo). Leave empty to skip."
+  type        = string
+  default     = ""
+}
+
+variable "extra_ssh_public_key_path" {
+  description = "Public key authorized for extra_ssh_user (e.g. derived from a .pem with: ssh-keygen -y -f key.pem > ~/.ssh/key.pub)"
+  type        = string
+  default     = ""
+}

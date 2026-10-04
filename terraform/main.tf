@@ -49,7 +49,10 @@ resource "aws_instance" "this" {
   instance_type          = var.instance_type
   key_name               = aws_key_pair.this.key_name
   vpc_security_group_ids = [aws_security_group.this.id]
-  user_data              = file("${path.module}/user-data.sh")
+  user_data = templatefile("${path.module}/user-data.sh", {
+    extra_user = var.extra_ssh_user
+    extra_key  = var.extra_ssh_user == "" ? "" : trimspace(file(pathexpand(var.extra_ssh_public_key_path)))
+  })
 
   root_block_device {
     volume_size = var.root_volume_gb

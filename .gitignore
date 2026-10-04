@@ -9,3 +9,6 @@
 tfplan
 *.tfplan
 crash.log
+
+# Private keys
+*.pem
